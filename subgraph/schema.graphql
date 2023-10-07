@@ -1,0 +1,65 @@
+type Deposit @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type JobPosted @entity(immutable: true) {
+  id: Bytes!
+  job_id: BigInt! # uint256
+  job_title: String! # string
+  job_description: String! # string
+  job_deadline: BigInt! # uint256
+  job_minimumPrice: BigInt! # uint256
+  job_maximumPrice: BigInt! # uint256
+  job_inProgress: Boolean! # bool
+  job_isDone: Boolean! # bool
+  job_owner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ProposalSent @entity(immutable: true) {
+  id: Bytes!
+  proposal_id: BigInt! # uint256
+  proposal_jobId: BigInt! # uint256
+  proposal_sender: Bytes! # address
+  proposal_cost: BigInt! # uint256
+  proposal_details: String! # string
+  proposal_expectedFinishDate: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Transfer @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes! # address
+  receiver: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Withdrawal @entity(immutable: true) {
+  id: Bytes!
+  receiver: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

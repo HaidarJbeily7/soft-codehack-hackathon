@@ -1,0 +1,39 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Fairlance
+    network: optimism-goerli
+    source:
+      address: "0xF2e2082151a593bE563f11FAa3D8C16728b3BAAf"
+      abi: Fairlance
+      startBlock: 15642277
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Deposit
+        - JobPosted
+        - OwnershipTransferred
+        - ProposalSent
+        - Transfer
+        - Withdrawal
+      abis:
+        - name: Fairlance
+          file: ./abis/Fairlance.json
+      eventHandlers:
+        - event: Deposit(address,uint256)
+          handler: handleDeposit
+        - event: JobPosted((indexed uint256,string,string,uint256,uint256,uint256,bool,bool,address))
+          handler: handleJobPosted
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: ProposalSent((indexed uint256,uint256,address,uint256,string,uint256))
+          handler: handleProposalSent
+        - event: Transfer(address,address,uint256)
+          handler: handleTransfer
+        - event: Withdrawal(address,uint256)
+          handler: handleWithdrawal
+      file: ./src/fairlance.ts
