@@ -22,11 +22,10 @@ const Balance = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'space-evenly',
           borderRadius: 20,
         }}
       >
-        <h2>Your Account:</h2>
+        <h2 style={{ marginTop: 10 }}>Your Account:</h2>
         <h4 style={{ color: '#00e64d', marginTop: 5 }}>{address}</h4>
 
         <div
@@ -37,9 +36,14 @@ const Balance = () => {
             gap: 100,
           }}
         >
-          <h3>Your Balance:</h3>
-          <h3>On Hold Balance:</h3>
+          <h3 style={{ display: 'flex', gap: 5 }}>
+            Your Balance: <h4 style={{ color: '#00e64d' }}>1000$</h4>
+          </h3>
+          <h3 style={{ display: 'flex', gap: 5 }}>
+            On Hold Balance: <h4 style={{ color: '#e60000' }}>10$</h4>
+          </h3>
         </div>
+
         <div
           style={{
             display: 'flex',
@@ -49,7 +53,7 @@ const Balance = () => {
             gap: 100,
           }}
         >
-          <Button>Add balance</Button>
+          <Button>Deposite</Button>
 
           <Button>withdraw</Button>
         </div>
