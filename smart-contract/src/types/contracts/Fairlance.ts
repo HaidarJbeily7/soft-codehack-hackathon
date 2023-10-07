@@ -57,31 +57,6 @@ export declare namespace Fairlance {
     isDone: boolean;
     owner: string;
   };
-
-  export type ProposalStruct = {
-    id: BigNumberish;
-    jobId: BigNumberish;
-    sender: AddressLike;
-    cost: BigNumberish;
-    details: string;
-    expectedFinishDate: BigNumberish;
-  };
-
-  export type ProposalStructOutput = [
-    id: bigint,
-    jobId: bigint,
-    sender: string,
-    cost: bigint,
-    details: string,
-    expectedFinishDate: bigint
-  ] & {
-    id: bigint;
-    jobId: bigint;
-    sender: string;
-    cost: bigint;
-    details: string;
-    expectedFinishDate: bigint;
-  };
 }
 
 export interface FairlanceInterface extends Interface {
@@ -230,10 +205,38 @@ export namespace DepositEvent {
 }
 
 export namespace JobPostedEvent {
-  export type InputTuple = [job: Fairlance.JobStruct];
-  export type OutputTuple = [job: Fairlance.JobStructOutput];
+  export type InputTuple = [
+    id: BigNumberish,
+    title: string,
+    description: string,
+    deadline: BigNumberish,
+    minimumPrice: BigNumberish,
+    maximumPrice: BigNumberish,
+    inProgress: boolean,
+    isDone: boolean,
+    owner: AddressLike
+  ];
+  export type OutputTuple = [
+    id: bigint,
+    title: string,
+    description: string,
+    deadline: bigint,
+    minimumPrice: bigint,
+    maximumPrice: bigint,
+    inProgress: boolean,
+    isDone: boolean,
+    owner: string
+  ];
   export interface OutputObject {
-    job: Fairlance.JobStructOutput;
+    id: bigint;
+    title: string;
+    description: string;
+    deadline: bigint;
+    minimumPrice: bigint;
+    maximumPrice: bigint;
+    inProgress: boolean;
+    isDone: boolean;
+    owner: string;
   }
   export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
   export type Filter = TypedDeferredTopicFilter<Event>;
@@ -255,10 +258,29 @@ export namespace OwnershipTransferredEvent {
 }
 
 export namespace ProposalSentEvent {
-  export type InputTuple = [proposal: Fairlance.ProposalStruct];
-  export type OutputTuple = [proposal: Fairlance.ProposalStructOutput];
+  export type InputTuple = [
+    id: BigNumberish,
+    jobId: BigNumberish,
+    sender: AddressLike,
+    cost: BigNumberish,
+    details: string,
+    expectedFinishDate: BigNumberish
+  ];
+  export type OutputTuple = [
+    id: bigint,
+    jobId: bigint,
+    sender: string,
+    cost: bigint,
+    details: string,
+    expectedFinishDate: bigint
+  ];
   export interface OutputObject {
-    proposal: Fairlance.ProposalStructOutput;
+    id: bigint;
+    jobId: bigint;
+    sender: string;
+    cost: bigint;
+    details: string;
+    expectedFinishDate: bigint;
   }
   export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
   export type Filter = TypedDeferredTopicFilter<Event>;
@@ -628,7 +650,7 @@ export interface Fairlance extends BaseContract {
       DepositEvent.OutputObject
     >;
 
-    "JobPosted(tuple)": TypedContractEvent<
+    "JobPosted(uint256,string,string,uint256,uint256,uint256,bool,bool,address)": TypedContractEvent<
       JobPostedEvent.InputTuple,
       JobPostedEvent.OutputTuple,
       JobPostedEvent.OutputObject
@@ -650,7 +672,7 @@ export interface Fairlance extends BaseContract {
       OwnershipTransferredEvent.OutputObject
     >;
 
-    "ProposalSent(tuple)": TypedContractEvent<
+    "ProposalSent(uint256,uint256,address,uint256,string,uint256)": TypedContractEvent<
       ProposalSentEvent.InputTuple,
       ProposalSentEvent.OutputTuple,
       ProposalSentEvent.OutputObject

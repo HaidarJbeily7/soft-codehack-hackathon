@@ -6,9 +6,9 @@ dataSources:
     name: Fairlance
     network: optimism-goerli
     source:
-      address: "0xF2e2082151a593bE563f11FAa3D8C16728b3BAAf"
+      address: "0xA0345116b3b0bdCE341A4176402Dc670c8b638A4"
       abi: Fairlance
-      startBlock: 15642277
+      startBlock: 15646669
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -26,11 +26,11 @@ dataSources:
       eventHandlers:
         - event: Deposit(address,uint256)
           handler: handleDeposit
-        - event: JobPosted((indexed uint256,string,string,uint256,uint256,uint256,bool,bool,address))
+        - event: JobPosted(indexed uint256,indexed string,string,uint256,uint256,uint256,bool,bool,indexed address)
           handler: handleJobPosted
         - event: OwnershipTransferred(indexed address,indexed address)
           handler: handleOwnershipTransferred
-        - event: ProposalSent((indexed uint256,uint256,address,uint256,string,uint256))
+        - event: ProposalSent(indexed uint256,indexed uint256,indexed address,uint256,string,uint256)
           handler: handleProposalSent
         - event: Transfer(address,address,uint256)
           handler: handleTransfer

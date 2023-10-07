@@ -33,15 +33,15 @@ export function handleJobPosted(event: JobPostedEvent): void {
   let entity = new JobPosted(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
-  entity.job_id = event.params.job.id
-  entity.job_title = event.params.job.title
-  entity.job_description = event.params.job.description
-  entity.job_deadline = event.params.job.deadline
-  entity.job_minimumPrice = event.params.job.minimumPrice
-  entity.job_maximumPrice = event.params.job.maximumPrice
-  entity.job_inProgress = event.params.job.inProgress
-  entity.job_isDone = event.params.job.isDone
-  entity.job_owner = event.params.job.owner
+  entity.Fairlance_id = event.params.id
+  entity.title = event.params.title
+  entity.description = event.params.description
+  entity.deadline = event.params.deadline
+  entity.minimumPrice = event.params.minimumPrice
+  entity.maximumPrice = event.params.maximumPrice
+  entity.inProgress = event.params.inProgress
+  entity.isDone = event.params.isDone
+  entity.owner = event.params.owner
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp
@@ -70,12 +70,12 @@ export function handleProposalSent(event: ProposalSentEvent): void {
   let entity = new ProposalSent(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
-  entity.proposal_id = event.params.proposal.id
-  entity.proposal_jobId = event.params.proposal.jobId
-  entity.proposal_sender = event.params.proposal.sender
-  entity.proposal_cost = event.params.proposal.cost
-  entity.proposal_details = event.params.proposal.details
-  entity.proposal_expectedFinishDate = event.params.proposal.expectedFinishDate
+  entity.Fairlance_id = event.params.id
+  entity.jobId = event.params.jobId
+  entity.sender = event.params.sender
+  entity.cost = event.params.cost
+  entity.details = event.params.details
+  entity.expectedFinishDate = event.params.expectedFinishDate
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp

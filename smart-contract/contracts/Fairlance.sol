@@ -32,8 +32,25 @@ contract Fairlance is Ownable {
         Proposal[] proposals;
     }
 
-    event JobPosted(Job indexed job);
-    event ProposalSent(Proposal indexed proposal);
+    event JobPosted(
+        uint256 indexed id,
+        string indexed title,
+        string description,
+        uint256 deadline,
+        uint256 minimumPrice,
+        uint256 maximumPrice,
+        bool inProgress,
+        bool isDone,
+        address indexed owner
+    );
+    event ProposalSent(
+        uint256 indexed id,
+        uint256 indexed jobId,
+        address indexed sender,
+        uint256 cost,
+        string details,
+        uint256 expectedFinishDate
+    );
     event Deposit(address sender, uint amount);
     event Withdrawal(address receiver, uint amount);
     event Transfer(address sender, address receiver, uint amount);
@@ -99,7 +116,17 @@ contract Fairlance is Ownable {
         jobId++;
         onholdBalances[msg.sender] += _maximumPrice;
         balances[msg.sender] -= _maximumPrice;
-        emit JobPosted(job);
+        emit JobPosted(
+            job.id,
+            job.title,
+            job.description,
+            job.deadline,
+            job.minimumPrice,
+            job.maximumPrice,
+            job.inProgress,
+            job.isDone,
+            job.owner
+        );
     }
 
     function sendProposal(
@@ -139,7 +166,14 @@ contract Fairlance is Ownable {
         jobToProposalsMapping[jobId].proposals.push(proposal);
         proposalIdToProposal[proposalId] = proposal;
         proposalId++;
-        emit ProposalSent(proposal);
+        emit ProposalSent(
+            proposal.id,
+            proposal.jobId,
+            proposal.sender,
+            proposal.cost,
+            proposal.details,
+            proposal.expectedFinishDate
+        );
     }
 
     function acceptProposal(

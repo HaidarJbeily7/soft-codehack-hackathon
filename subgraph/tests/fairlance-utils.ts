@@ -24,13 +24,62 @@ export function createDepositEvent(sender: Address, amount: BigInt): Deposit {
   return depositEvent
 }
 
-export function createJobPostedEvent(job: ethereum.Tuple): JobPosted {
+export function createJobPostedEvent(
+  id: BigInt,
+  title: string,
+  description: string,
+  deadline: BigInt,
+  minimumPrice: BigInt,
+  maximumPrice: BigInt,
+  inProgress: boolean,
+  isDone: boolean,
+  owner: Address
+): JobPosted {
   let jobPostedEvent = changetype<JobPosted>(newMockEvent())
 
   jobPostedEvent.parameters = new Array()
 
   jobPostedEvent.parameters.push(
-    new ethereum.EventParam("job", ethereum.Value.fromTuple(job))
+    new ethereum.EventParam("id", ethereum.Value.fromUnsignedBigInt(id))
+  )
+  jobPostedEvent.parameters.push(
+    new ethereum.EventParam("title", ethereum.Value.fromString(title))
+  )
+  jobPostedEvent.parameters.push(
+    new ethereum.EventParam(
+      "description",
+      ethereum.Value.fromString(description)
+    )
+  )
+  jobPostedEvent.parameters.push(
+    new ethereum.EventParam(
+      "deadline",
+      ethereum.Value.fromUnsignedBigInt(deadline)
+    )
+  )
+  jobPostedEvent.parameters.push(
+    new ethereum.EventParam(
+      "minimumPrice",
+      ethereum.Value.fromUnsignedBigInt(minimumPrice)
+    )
+  )
+  jobPostedEvent.parameters.push(
+    new ethereum.EventParam(
+      "maximumPrice",
+      ethereum.Value.fromUnsignedBigInt(maximumPrice)
+    )
+  )
+  jobPostedEvent.parameters.push(
+    new ethereum.EventParam(
+      "inProgress",
+      ethereum.Value.fromBoolean(inProgress)
+    )
+  )
+  jobPostedEvent.parameters.push(
+    new ethereum.EventParam("isDone", ethereum.Value.fromBoolean(isDone))
+  )
+  jobPostedEvent.parameters.push(
+    new ethereum.EventParam("owner", ethereum.Value.fromAddress(owner))
   )
 
   return jobPostedEvent
@@ -60,14 +109,37 @@ export function createOwnershipTransferredEvent(
 }
 
 export function createProposalSentEvent(
-  proposal: ethereum.Tuple
+  id: BigInt,
+  jobId: BigInt,
+  sender: Address,
+  cost: BigInt,
+  details: string,
+  expectedFinishDate: BigInt
 ): ProposalSent {
   let proposalSentEvent = changetype<ProposalSent>(newMockEvent())
 
   proposalSentEvent.parameters = new Array()
 
   proposalSentEvent.parameters.push(
-    new ethereum.EventParam("proposal", ethereum.Value.fromTuple(proposal))
+    new ethereum.EventParam("id", ethereum.Value.fromUnsignedBigInt(id))
+  )
+  proposalSentEvent.parameters.push(
+    new ethereum.EventParam("jobId", ethereum.Value.fromUnsignedBigInt(jobId))
+  )
+  proposalSentEvent.parameters.push(
+    new ethereum.EventParam("sender", ethereum.Value.fromAddress(sender))
+  )
+  proposalSentEvent.parameters.push(
+    new ethereum.EventParam("cost", ethereum.Value.fromUnsignedBigInt(cost))
+  )
+  proposalSentEvent.parameters.push(
+    new ethereum.EventParam("details", ethereum.Value.fromString(details))
+  )
+  proposalSentEvent.parameters.push(
+    new ethereum.EventParam(
+      "expectedFinishDate",
+      ethereum.Value.fromUnsignedBigInt(expectedFinishDate)
+    )
   )
 
   return proposalSentEvent

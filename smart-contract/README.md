@@ -20,4 +20,4 @@ npx hardhat run scripts/deploy.ts
 
 | Address                                    | Explorer Link                                                                                        |
 | ------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| 0xF2e2082151a593bE563f11FAa3D8C16728b3BAAf | [Link](https://goerli-optimism.etherscan.io/address/0xF2e2082151a593bE563f11FAa3D8C16728b3BAAf#code) |
+| 0xA0345116b3b0bdCE341A4176402Dc670c8b638A4 | [Link](https://goerli-optimism.etherscan.io/address/0xA0345116b3b0bdCE341A4176402Dc670c8b638A4#code) |
