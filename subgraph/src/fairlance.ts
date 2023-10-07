@@ -5,7 +5,7 @@ import {
   ProposalSent as ProposalSentEvent,
   Transfer as TransferEvent,
   Withdrawal as WithdrawalEvent
-} from "../generated/Fairlance/Fairlance"
+} from '../generated/Fairlance/Fairlance'
 import {
   Deposit,
   JobPosted,
@@ -13,9 +13,9 @@ import {
   ProposalSent,
   Transfer,
   Withdrawal
-} from "../generated/schema"
+} from '../generated/schema'
 
-export function handleDeposit(event: DepositEvent): void {
+export function handleDeposit (event: DepositEvent): void {
   let entity = new Deposit(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
@@ -29,12 +29,12 @@ export function handleDeposit(event: DepositEvent): void {
   entity.save()
 }
 
-export function handleJobPosted(event: JobPostedEvent): void {
+export function handleJobPosted (event: JobPostedEvent): void {
   let entity = new JobPosted(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.Fairlance_id = event.params.id
-  entity.title = event.params.title
+  entity.title = event.params.title.toString()
   entity.description = event.params.description
   entity.deadline = event.params.deadline
   entity.minimumPrice = event.params.minimumPrice
@@ -50,7 +50,7 @@ export function handleJobPosted(event: JobPostedEvent): void {
   entity.save()
 }
 
-export function handleOwnershipTransferred(
+export function handleOwnershipTransferred (
   event: OwnershipTransferredEvent
 ): void {
   let entity = new OwnershipTransferred(
@@ -66,7 +66,7 @@ export function handleOwnershipTransferred(
   entity.save()
 }
 
-export function handleProposalSent(event: ProposalSentEvent): void {
+export function handleProposalSent (event: ProposalSentEvent): void {
   let entity = new ProposalSent(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
@@ -84,7 +84,7 @@ export function handleProposalSent(event: ProposalSentEvent): void {
   entity.save()
 }
 
-export function handleTransfer(event: TransferEvent): void {
+export function handleTransfer (event: TransferEvent): void {
   let entity = new Transfer(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
@@ -99,7 +99,7 @@ export function handleTransfer(event: TransferEvent): void {
   entity.save()
 }
 
-export function handleWithdrawal(event: WithdrawalEvent): void {
+export function handleWithdrawal (event: WithdrawalEvent): void {
   let entity = new Withdrawal(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )

@@ -43,6 +43,7 @@ contract Fairlance is Ownable {
         bool isDone,
         address indexed owner
     );
+
     event ProposalSent(
         uint256 indexed id,
         uint256 indexed jobId,
