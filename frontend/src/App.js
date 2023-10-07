@@ -22,6 +22,9 @@ import GuestRoute from './utils/GuestRoute';
 
 import { WagmiConfig, createConfig } from 'wagmi';
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit';
+import { optimismGoerli } from 'wagmi/chains';
+
+const chains = [optimismGoerli];
 
 const config = createConfig(
   getDefaultConfig({
@@ -29,10 +32,9 @@ const config = createConfig(
     alchemyId: process.env.ALCHEMY_ID,
     walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID,
 
-    // Required
     appName: 'Fairlance',
+    chains,
 
-    // Optional
     appDescription: '5736574953f99877cc682d96dd82bdf0',
     appUrl: 'fairlance.ru',
     appIcon: 'https://fairlance.com/logo.png',
