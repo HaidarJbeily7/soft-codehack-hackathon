@@ -1,6 +1,6 @@
 # Fairlance Subgraph
 
-A Subgraph that efficiently indexes and queries data from the blockchain, providing real-time insights into latest jobs and offers
+A Subgraph that efficiently indexes and queries data from the blockchain, providing real-time insights into latest jobs and offers [Subgraph Link](https://api.studio.thegraph.com/query/51537/fairlance/version/latest)
 
 # Quickstart
 
