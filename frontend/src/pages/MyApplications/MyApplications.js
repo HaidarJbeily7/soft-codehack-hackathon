@@ -35,27 +35,29 @@ const MyApplications = () => {
     <div>
       <NavBar notfixed={true} />
       <StyledMyApplications>
-        <h1>My Applications</h1>
-        {!loading || applications.length ? (
-          applications.map((application, idx) => {
-            return <MyApplication application={application} idx={idx} key={idx}></MyApplication>;
-          })
-        ) : (
-          <StyledLoading className='loading-container'>
-            <div>
-              <Code className='loading' />
-            </div>
-            <div>
-              <Code className='loading' />
-            </div>
-            <div>
-              <Code className='loading' />
-            </div>
-            <div>
-              <Code className='loading' />
-            </div>
-          </StyledLoading>
-        )}
+        <div style={{ height: '70vh' }}>
+          <h1>My Applications</h1>
+          {!loading || applications.length ? (
+            applications.map((application, idx) => {
+              return <MyApplication application={application} idx={idx} key={idx}></MyApplication>;
+            })
+          ) : (
+            <StyledLoading className='loading-container'>
+              <div>
+                <Code className='loading' />
+              </div>
+              <div>
+                <Code className='loading' />
+              </div>
+              <div>
+                <Code className='loading' />
+              </div>
+              <div>
+                <Code className='loading' />
+              </div>
+            </StyledLoading>
+          )}
+        </div>
       </StyledMyApplications>
       <Footer />
     </div>

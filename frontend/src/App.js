@@ -80,8 +80,8 @@ function App() {
                 <Route path='/users/:userID/applications' element={<MyApplications />}></Route>
               </Route>
 
-              <Route path='/profile/:id' element={<Profile />}>
-                <Route path='/profile/:id' element={<Profile />} />
+              <Route path='/profile/' element={<Profile />}>
+                <Route path='/profile/' element={<Profile />} />
               </Route>
             </Routes>
           </AuthProvider>
