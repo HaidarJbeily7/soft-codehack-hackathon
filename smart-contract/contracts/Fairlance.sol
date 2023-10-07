@@ -147,6 +147,8 @@ contract Fairlance is Ownable {
     ) public validProposalId(_proposalId) {
         Proposal memory proposal = proposalIdToProposal[_proposalId];
         Job memory job = getJobById(proposal.jobId);
+        require(!job.isDone, "Cannot accept proposal to completed job");
+        require(!job.inProgress, "Cannot accept proposal to inprogress job");
         job.inProgress = true;
         jobIdToJob[job.id] = job;
         require(job.owner == msg.sender, "Only Job owner can take this action");
@@ -155,6 +157,8 @@ contract Fairlance is Ownable {
 
     function completeJob(uint256 _jobId) public noReentrant {
         Job memory job = getJobById(_jobId);
+        require(!job.isDone, "Cannot complete Job to completed job");
+        require(job.inProgress, "Cannot complete Job to not inprogress job");
         require(
             msg.sender == job.owner,
             "Only Job owner can access this action"
