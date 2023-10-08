@@ -29,8 +29,11 @@ const chains = [optimismGoerli];
 const config = createConfig(
   getDefaultConfig({
     // Required API Keys
-    alchemyId: process.env.ALCHEMY_ID,
-    walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID,
+    // alchemyId: process.env.ALCHEMY_ID,
+    // walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID,
+
+    alchemyId: 'A-d-yp-QqtXuI3R2lNdLW3PsplDFXn7Q',
+    walletConnectProjectId: '5736574953f99877cc682d96dd82bdf0',
 
     appName: 'Fairlance',
     chains,
