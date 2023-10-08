@@ -1,10 +1,8 @@
 import pandas as pd
 from collections import Counter
-import nltk
 from nltk.corpus import stopwords
 
-def infer_tags(json, max_tags):
-    data = pd.read_json(json, orient='records')
+def infer_tags(post_data: dict, max_tags=5):
 
     def extract_keywords(title, description, max_tags=max_tags):
         # Combine title and description into a single text
@@ -25,10 +23,8 @@ def infer_tags(json, max_tags):
 
         return ', '.join(top_words)
 
-    # Apply the function to create the 'inferred_post_tags' column
-    data['inferred_post_tags'] = data.apply(lambda row: extract_keywords(row['title'], row['post_description'], max_tags=5), axis=1)
+    tags = {
+        'inferred_tags': extract_keywords(post_data.get('title'), post_data.get('post_description'), max_tags=5)
+    }
 
-    data = data.drop(columns=['title', 'post_description'])
-
-    # Return data in json format (with records as orentation)
-    return data.to_json(orient='records')
+    return tags
