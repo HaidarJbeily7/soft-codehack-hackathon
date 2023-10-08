@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify
-from addPost import add_post
-from addFreelancer import add_freelancer
-from addPostInteraction import add_post_interaction
-from inferTags import infer_tags
-from recommendPosts import recommend_posts
+from utils.addPost import add_post
+from utils.addFreelancer import add_freelancer
+from utils.addPostInteraction import add_post_interaction
+from utils.inferTags import infer_tags
+from utils.recommendPosts import recommend_posts
 import nltk
 
 app = Flask(__name__)
