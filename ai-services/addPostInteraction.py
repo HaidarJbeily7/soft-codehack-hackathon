@@ -1,5 +1,4 @@
 import pandas as pd
-from flask import Flask, request, jsonify
 
 csv_file_path = './data/posts_interactions.csv'
 
@@ -15,7 +14,17 @@ def add_post_interaction(data):
     }
 
     # Append the new row to the CSV file
-    with open(csv_file_path, 'a') as f:
+    try: 
+        f = open(csv_file_path, 'a')
         pd.DataFrame([new_row]).to_csv(f, header=False, index=False)
-
-    return jsonify({'message': 'New post interaction was recorded successfully'})
+    except Exception as e:
+        print(e)
+        fail = {
+            "message": e
+        }
+        return fail
+    finally:
+        success = {
+            "message": "New post interaction was recorded successfully"
+        }
+        return success
