@@ -48,7 +48,7 @@ const NavBar = ({ notfixed }) => {
                   </button>
                   <div className='dropdown-content'>
                     <li>
-                      <Link to={`/users/${userID}/applications`}>My Applications</Link>
+                      <Link to={`/applications`}>My Applications</Link>
                     </li>
                     <li>
                       <Link to={`/offers`}>My Offers</Link>

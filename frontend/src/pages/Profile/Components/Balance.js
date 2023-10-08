@@ -144,7 +144,7 @@ const Balance = () => {
               }}
             >
               <Button disabled={!write} onClick={() => write?.()}>
-                Deposite
+                Deposit
               </Button>
 
               <Withdraw amount={balancesReadResponse.data} />
