@@ -10,6 +10,14 @@ We seek to create equal opportunities for freelancers regardless of their locati
 
 Our mission is to revolutionize the freelancing landscape, providing a level playing field for talented individuals to thrive and collaborate with clients from all around the world.
 
+## Contents
+
+  - [AI Services](https://github.com/HaidarJbeily7/soft-codehack-hackathon/tree/main/ai-services)
+  - [Smart Contract](https://github.com/HaidarJbeily7/soft-codehack-hackathon/tree/main/smart-contract)
+  - [Frontend](https://github.com/HaidarJbeily7/soft-codehack-hackathon/tree/main/frontend)
+  - [Subgraph](https://github.com/HaidarJbeily7/soft-codehack-hackathon/tree/main/subgraph)
+
+
 ## :zap: Key Features
 
 - **Decentralized Platform:** FairLance utilizes decentralized technologies to remove geographical restrictions and excessive fees, allowing freelancers to access a global client base effortlessly.
