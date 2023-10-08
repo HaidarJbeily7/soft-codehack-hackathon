@@ -22,17 +22,22 @@ import GuestRoute from './utils/GuestRoute';
 
 import { WagmiConfig, createConfig } from 'wagmi';
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit';
+import { optimismGoerli } from 'wagmi/chains';
+
+const chains = [optimismGoerli];
 
 const config = createConfig(
   getDefaultConfig({
     // Required API Keys
-    alchemyId: process.env.ALCHEMY_ID,
-    walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID,
+    // alchemyId: process.env.ALCHEMY_ID,
+    // walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID,
 
-    // Required
+    alchemyId: 'A-d-yp-QqtXuI3R2lNdLW3PsplDFXn7Q',
+    walletConnectProjectId: '5736574953f99877cc682d96dd82bdf0',
+
     appName: 'Fairlance',
+    chains,
 
-    // Optional
     appDescription: '5736574953f99877cc682d96dd82bdf0',
     appUrl: 'fairlance.ru',
     appIcon: 'https://fairlance.com/logo.png',
@@ -78,8 +83,8 @@ function App() {
                 <Route path='/users/:userID/applications' element={<MyApplications />}></Route>
               </Route>
 
-              <Route path='/profile/:id' element={<Profile />}>
-                <Route path='/profile/:id' element={<Profile />} />
+              <Route path='/profile/' element={<Profile />}>
+                <Route path='/profile/' element={<Profile />} />
               </Route>
             </Routes>
           </AuthProvider>
