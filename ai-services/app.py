@@ -1,7 +1,9 @@
 from flask import Flask, request
+import json
 from inferTags import infer_tags
 from addPostInteraction import add_post_interaction
 from addPost import add_post
+from recommendPosts import recommend_posts
 import nltk
 
 app = Flask(__name__)
@@ -20,6 +22,14 @@ def add_post_route():
 def add_post_interaction_route():
     data = request.get_json()
     return add_post_interaction(data)
+
+@app.route('/recommend_posts', methods=['GET'])
+def recommend_posts_route():
+    data = request.get_json()
+    freelancer_address = data['freelancer_address']
+    # print(freelancer_address)
+    # return "BLYAT"
+    return json.dumps(recommend_posts(freelancer_address=freelancer_address))
 
 if __name__ == '__main__':
     nltk.download('stopwords', quiet=True)

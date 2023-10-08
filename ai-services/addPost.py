@@ -1,5 +1,5 @@
 import pandas as pd
-from flask import Flask, request, jsonify
+from flask import jsonify
 
 csv_file_path = './data/posts.csv'
 
