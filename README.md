@@ -48,4 +48,4 @@ Our mission is to revolutionize the freelancing landscape, providing a level pla
 
 ## Sequence Diagram (App Flows)
 
-<img src="./imgs/app-flows.svg" alt="FairLance Sequence Diagram (App Flows)" width="500"/>
+<img src="./imgs/app-flows.svg" alt="FairLance Sequence Diagram (App Flows)" width="100%"/>
