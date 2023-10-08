@@ -1,7 +1,5 @@
 import pandas as pd
-from flask import jsonify
 from inferTags import infer_tags
-import json
 
 csv_file_path = './data/posts.csv'
 
