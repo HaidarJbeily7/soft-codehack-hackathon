@@ -1,6 +1,6 @@
 # **FairLance**
 
-<img src="https://hackmd.io/_uploads/Byo98hX92.png" alt="FairLance" width="300"/>
+<img src="./imgs/Fairlance-logo.png" alt="FairLance" width="300"/>
 
 FairLance is an innovative platform that revolutionizes the freelancing industry by providing fair opportunities to freelancers worldwide. Our website leverages decentralized technologies to transcend geographical boundaries, empowering freelancers to expand their reach without worrying about excessive fees, unlike other conventional freelancing platforms. With our new payment method, users experience a significant positive impact, as it eliminates numerous limitations that currently exist in the industry, transforming the way freelancers and service providers operate.
 
@@ -10,7 +10,7 @@ We seek to create equal opportunities for freelancers regardless of their locati
 
 Our mission is to revolutionize the freelancing landscape, providing a level playing field for talented individuals to thrive and collaborate with clients from all around the world.
 
-## Key Features
+## :zap: Key Features
 
 - **Decentralized Platform:** FairLance utilizes decentralized technologies to remove geographical restrictions and excessive fees, allowing freelancers to access a global client base effortlessly.
 
@@ -25,12 +25,19 @@ Our mission is to revolutionize the freelancing landscape, providing a level pla
 
 - **User-Friendly Interface:** Our intuitive user interface makes it easy for both freelancers and clients to navigate and interact effectively.
 
-## Tech Stack
+## :computer: Tech Stack
 
 - **Frontend:**
+  - Javascript.
   - ReactJS.
+  - Styled Components.
+  - Wagmi.
+  - ConnectKit.
+  - Eathers.js.
+  - framer-motion.
 - **Smart Contract:**
   - Solidity.
+  - HardHut.
 - **AI Services:**
   - Python.
   - Numpy.
@@ -38,3 +45,7 @@ Our mission is to revolutionize the freelancing landscape, providing a level pla
   - Scikit-Learn.
   - nltk.
   - Flask.
+
+## Sequence Diagram (App Flows)
+
+<img src="./imgs/app-flows.svg" alt="FairLance Sequence Diagram (App Flows)" width="500"/>
