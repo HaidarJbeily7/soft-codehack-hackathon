@@ -3,10 +3,12 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
-def recommend_posts(freelancer_address, n_posts=5):
+def recommend_posts(data, n_posts=5):
     freelancers_csv_path = './data/freelancers.csv'
     posts_csv_path = './data/posts.csv'
     posts_interactions_csv_path = './data/posts_interactions.csv'
+
+    freelancer_address = data.get('freelancer_address')
 
     freelancers_df = pd.read_csv(freelancers_csv_path)
     posts_df = pd.read_csv(posts_csv_path)
