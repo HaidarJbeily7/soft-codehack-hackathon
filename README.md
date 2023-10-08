@@ -45,7 +45,9 @@ Our mission is to revolutionize the freelancing landscape, providing a level pla
   - framer-motion.
 - **Smart Contract:**
   - Solidity.
-  - HardHut.
+  - HardHat.
+- **Subgraph:**
+  - The Graph Protocol
 - **AI Services:**
   - Python.
   - Numpy.
